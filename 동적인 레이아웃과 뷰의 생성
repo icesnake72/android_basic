@@ -1,0 +1,8 @@
+//        LinearLayout linearLayout = new LinearLayout(this);
+//        linearLayout.setOrientation(LinearLayout.VERTICAL);
+//
+//        TextView myText = new TextView(this);
+//        myText.setText("안녕하세요, 안드로이드 프로그램입니다.");
+//        linearLayout.addView(myText);
+//
+//        setContentView(linearLayout);
