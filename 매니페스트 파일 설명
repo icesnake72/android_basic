@@ -1,0 +1,53 @@
+매니페스트 파일에 대해서...
+
+
+<!--
+ allowBackup : 속성은 안드로이드 앱이 백업 기능을 사용할지 여부,
+ 기기변경, 앱 삭제 후 재설치이후 데이터를 백업하여 두었다가 복원가능하도록,
+ 개인 정보나 중요한 데이터가 노출되는 것을 방지
+
+dataExtractionRules : 속성은 Android 7.0 이상의 버전에서 사용 가능하며,
+네트워크 보안 구성에 관련된 기능으로 앱의 데이터 보호를 강화하는 데 사용됩니다.
+이 속성을 사용하기 위해서는 해당 리소스 파일을 작성하고, 데이터 추출 규칙을 명확하게 정의하는 것이 중요합니다.
+
+android:fullBackupContent="@xml/backup_rules"는 안드로이드 앱에서 백업 정책을 지정하는 데 사용되는 속성입니다.
+안드로이드에서 자동 백업 및 복원 기능은 사용자에게 유용한 기능이지만, 중요한 개인 정보를 백업 대상에 포함시키는 것은 보안적인
+측면에서 신중하게 고려되어야 합니다.
+따라서 백업 규칙을 설정할 때에는 사용자의 개인 정보를 보호하고, 불필요한 데이터를 포함시키지 않도록 주의해야 합니다.
+
+<activity
+...
+android:exported="true" : 외부에 노출되어 있는 Activity인지 여부를 결정함
+ -->
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"  --> 네임스페이스 : android속성을 사용하기위하여 선언 
+    xmlns:tools="http://schemas.android.com/tools">  --> 네임스페이스 : tool속성을 사용하기위하여 선언 
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ScrollText"
+        tools:targetApi="31">
+        <activity
+            android:name=".OtherActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
